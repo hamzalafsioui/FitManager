@@ -1,6 +1,8 @@
 CREATE DATABASE IF NOT EXISTS fit_manager;
 USE fit_manager;
 
+select * from courses;
+
 -- TABLE ROLES
 CREATE TABLE roles(
     id INT AUTO_INCREMENT PRIMARY KEY,

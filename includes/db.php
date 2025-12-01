@@ -1,7 +1,0 @@
-<?php
-
-// connect to db
-
-
-
-?>
