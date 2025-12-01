@@ -68,9 +68,18 @@ $courses = getAllCourses();
                         <th class="p-3">Actions</th>
                     </tr>
                 </thead>
-                <tbody id="courses-table">
-                    <!-- JS inject rows -->
-                </tbody>
+                <tbody>
+                <?php foreach ($courses as $course): ?>
+                     <tr class="border-b">
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['name']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['category_name']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['course_date']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['course_time']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['duration']) ?> min</td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['max_participants']) ?></td>
+                    </tr>
+            <?php endforeach; ?>
+            </tbody>
             </table>
         </div>
     </div>
