@@ -38,14 +38,30 @@ function addCourse($data){
     return $result;
 }
 
-function deleteCourse($id){
+function deleteCourseById($id){
     global $pdo;
     $stmt = $pdo->prepare("DELETE FROM courses WHERE id = ?");
 
     return $stmt->execute(["$id"]);
 }
 
-
+function updateCourseById($id, $data) {
+    global $pdo;
+    $stmt = $pdo->prepare("
+        UPDATE courses SET
+        name=?, category_id=?, course_date=?, course_time=?, duration=?, max_participants=?
+        WHERE id=?
+    ");
+    return $stmt->execute([
+        $data["name"],
+        $data["category_id"],
+        $data["course_date"],
+        $data["course_time"],
+        $data["duration"],
+        $data["max_participants"],
+        $id
+    ]);
+}
 
 
 
@@ -69,6 +85,9 @@ $insertedData = [
 
 // $deleteCourse = deleteCourse(4);
 // echo $deleteCourse;
+
+$updatedData = updateCourseById(3,$insertedData);
+echo $updatedData;
 
 
 ?>
