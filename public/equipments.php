@@ -1,5 +1,8 @@
 <?php
 
+require_once "../includes/functions_equip.php";
+$equipments = getAllEquipments();
+
 
 
 ?>
@@ -14,8 +17,6 @@
     <!-- Tailwind CSS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="./src/output.css">
-
-    <!-- Your JS -->
     <script src="./js/equipments.js" defer></script>
 </head>
 
@@ -97,7 +98,15 @@
                 </thead>
 
                 <tbody id="equipments-table">
-                    <!-- JS inject rows -->
+                     <?php foreach ($equipments as $equip): ?>
+                     <tr class="border-b">
+                        <td class="p-3 text-center"><?= htmlspecialchars($equip['name']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($equip['type_name']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($equip['quantity']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($equip['state_name']) ?></td>
+                       
+                    </tr>
+            <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
