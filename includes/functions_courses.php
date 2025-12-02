@@ -4,10 +4,61 @@ require_once __DIR__ . "/../db.php";
 
 function getAllCourses(){
     global $pdo;
+    global $name;
     $sql = "SELECT c.*,cat.name As category_name FROM courses c JOIN categories cat ON c.category_id = cat.id ORDER BY c.course_date ASC";
 
     RETURN $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getCourseById($id){
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT *,cat.name As category_name FROM courses c JOIN categories cat ON c.category_id = cat.id WHERE c.id = ?");
+    $stmt->execute(["$id"]);
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+function addCourse($data){
+    global $pdo;
+    $stmt = $pdo->prepare(
+        "INSERT INTO courses (name,category_id,course_date,course_time,duration,max_participants) 
+        VALUES (?,?,?,?,?,?)"
+    );
+
+    $result = $stmt->execute([
+        $data["name"],
+        $data["category_id"],
+        $data["course_date"],
+        $data["course_time"],
+        $data["duration"],
+        $data["max_participants"],
+    ]);
+    return $result;
+}
+
+
+
+
+
+$customVariable = getAllCourses();
+// print_r($customVariable);
+
+$newVar = getCourseById(1);
+print_r($customVariable);
+
+$insertedData = [
+    "name"=> "Yoga x",
+    "category_id"=>1,
+    "course_date"=> date("Y-m-d"),
+    "course_time"=>"08:00:00",
+    "duration"=>40,
+    "max_participants"=>10,
+];
+
+
+// $insertDataReturn = addCourse($insertedData);
 
 
 ?>
