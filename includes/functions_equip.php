@@ -63,6 +63,14 @@ function getAllStates() {
     return $pdo->query("SELECT * FROM equipment_states")->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getTotalEquipments(){
+    global $pdo;
+    $stmt =  $pdo->query("SELECT count(*) AS total_equipments FROM equipments");
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result["total_equipments"];
+
+}
+
 
 $insertedData = [
     "name"=> "Gym Ball_",
@@ -71,9 +79,12 @@ $insertedData = [
     "state_id"=>2
     
 ];
-// $eqs = addEquipment($insertedData);
+// $eqs = getAllEquipments();
 // $eqs = deleteEquipmentById(4);
-echo print_r($eqs);
+// echo print_r($eqs);
+
+// $tota_eq = getTotalEquipments();
+// echo $tota_eq;
 
 ?>
 

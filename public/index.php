@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . "/../includes/functions_courses.php";
+require_once __DIR__ . "/../includes/functions_equip.php";
 
 $total_courses = getTotalCourses();
+$total_equipments = getTotalEquipments();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +49,9 @@ $total_courses = getTotalCourses();
 
             <div class="bg-white shadow rounded p-6 flex flex-col items-center">
                 <h2 class="text-gray-500">Total Equipments</h2>
-                <span id="total-equipments" class="text-4xl font-bold text-green-600">0</span>
+                <span id="total-equipments" class="text-4xl font-bold text-green-600">
+                     <?= htmlspecialchars($total_equipments) ?>
+                </span>
             </div>
 
             <!-- Card category -->
