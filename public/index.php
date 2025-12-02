@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . "/../includes/functions_courses.php";
+
+$total_courses = getTotalCourses();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +39,9 @@
             <!-- Card course -->
             <div class="bg-white shadow rounded p-6 flex flex-col items-center">
                 <h2 class="text-gray-500">Total Courses</h2>
-                <span id="total-courses" class="text-4xl font-bold text-blue-600">0</span>
+                <span id="total-courses" class="text-4xl font-bold text-blue-600">
+                     <?= htmlspecialchars($total_courses) ?>
+                </span>
             </div>
             <!-- Card equipments -->
 
