@@ -38,6 +38,13 @@ function addCourse($data){
     return $result;
 }
 
+function deleteCourse($id){
+    global $pdo;
+    $stmt = $pdo->prepare("DELETE FROM courses WHERE id = ?");
+
+    return $stmt->execute(["$id"]);
+}
+
 
 
 
@@ -46,7 +53,7 @@ $customVariable = getAllCourses();
 // print_r($customVariable);
 
 $newVar = getCourseById(1);
-print_r($customVariable);
+// print_r($customVariable);
 
 $insertedData = [
     "name"=> "Yoga x",
@@ -59,6 +66,9 @@ $insertedData = [
 
 
 // $insertDataReturn = addCourse($insertedData);
+
+// $deleteCourse = deleteCourse(4);
+// echo $deleteCourse;
 
 
 ?>
