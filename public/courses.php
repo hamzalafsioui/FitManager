@@ -2,7 +2,7 @@
 require_once "../includes/functions_courses.php";
 
 $courses = getAllCourses();
-
+$categories = getAllCategories();
 
 
 ?>
@@ -13,11 +13,10 @@ $courses = getAllCourses();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses Management</title>
-
     <!-- TailwindCss -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="./src/output.css">
-<script src="./js/courses.js" defer></script>
+    <script src="/fit-manager/public/js/courses.js" defer></script>
 </head>
 
 <body class="bg-gray-100">
@@ -35,9 +34,17 @@ $courses = getAllCourses();
     <div class="bg-white p-6 rounded shadow">
         <h2 class="text-xl mb-4 font-semibold">Add Course</h2>
 
-        <form id="course-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form id="course-form" method="post" action="../includes/add_course.php" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input class="p-3 border rounded" name="name" placeholder="Course Name" required>
-            <select class="p-3 border rounded" name="category_id" required></select>
+           <select class="p-3 border rounded" name="category_id" required>
+                <option value="" disabled selected>Select Category</option>
+                <?php foreach ($categories as $category): ?>
+                <option value="<?= htmlspecialchars($category['id']) ?>">
+                    <?= htmlspecialchars($category['name']) ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+
 
             <input type="date" class="p-3 border rounded" name="course_date" required>
             <input type="time" class="p-3 border rounded" name="course_time" required>
@@ -45,7 +52,7 @@ $courses = getAllCourses();
             <input type="number" class="p-3 border rounded" name="duration" placeholder="Duration" required>
             <input type="number" class="p-3 border rounded" name="max_participants" placeholder="Max Participants" required>
 
-            <button class="col-span-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">
+            <button type="submit" class="col-span-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">
                 Add Course
             </button>
         </form>
@@ -77,6 +84,7 @@ $courses = getAllCourses();
                         <td class="p-3 text-center"><?= htmlspecialchars($course['course_time']) ?></td>
                         <td class="p-3 text-center"><?= htmlspecialchars($course['duration']) ?> min</td>
                         <td class="p-3 text-center"><?= htmlspecialchars($course['max_participants']) ?></td>
+                        
                     </tr>
             <?php endforeach; ?>
             </tbody>
