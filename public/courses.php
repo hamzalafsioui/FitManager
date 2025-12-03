@@ -1,5 +1,6 @@
 <?php
-require_once "../includes/functions_courses.php";
+require_once __DIR__ . "/../includes/functions_data/functions_courses.php";
+
 
 $courses = getAllCourses();
 $categories = getAllCategories();
@@ -85,6 +86,21 @@ $categories = getAllCategories();
                         <td class="p-3 text-center"><?= htmlspecialchars($course['course_time']) ?></td>
                         <td class="p-3 text-center"><?= htmlspecialchars($course['duration']) ?> min</td>
                         <td class="p-3 text-center"><?= htmlspecialchars($course['max_participants']) ?></td>
+
+
+                        <td class="text-center p-3 space-x-2">
+<a href="#" class="text-blue-600 hover:underline edit-btn" data-id="<?= $course['id'] ?>">
+    Edit
+</a>
+
+                  <a class="text-red-600 hover:underline delete-btn"
+                 href="#"
+                data-id="<?= $course['id'] ?>">
+                    Delete
+                </a>
+
+                </td>
+                        
                         
                     </tr>
             <?php endforeach; ?>
@@ -92,6 +108,36 @@ $categories = getAllCategories();
             </table>
         </div>
     </div>
+
+    <!-- Edit Course Modal -->
+<div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded shadow-lg p-6 w-full max-w-md relative">
+        <h2 class="text-xl mb-4 font-semibold">Edit Course</h2>
+        <form id="edit-course-form" class="grid grid-cols-1 gap-4">
+            <input type="hidden" name="id" id="edit-course-id">
+
+            <input type="text" class="p-3 border rounded" name="name" id="edit-course-name" placeholder="Course Name" required>
+            
+            <select class="p-3 border rounded" name="category_id" id="edit-course-category" required>
+                <option value="" disabled>Select Category</option>
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <input type="date" class="p-3 border rounded" name="course_date" id="edit-course-date" required>
+            <input type="time" class="p-3 border rounded" name="course_time" id="edit-course-time" required>
+            <input type="number" class="p-3 border rounded" name="duration" id="edit-course-duration" placeholder="Duration" required>
+            <input type="number" class="p-3 border rounded" name="max_participants" id="edit-course-max" placeholder="Max Participants" required>
+
+            <div class="flex justify-end gap-2 mt-4">
+                <button type="button" id="closeModal" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 </main>
 
 </body>
