@@ -15,17 +15,14 @@ document
         method: "POST",
         body: formData,
       });
-    //   console.log(response);
-    //   console.log(response.body);
-      
+      //   console.log(response);
+      //   console.log(response.body);
 
       let result = await response.json();
       console.log(result);
 
       if (result.status === "success") {
-        
         showMessage("Course added successfully!", "green");
-
 
         addCourseToTable(result.course);
 
@@ -54,6 +51,8 @@ function addCourseToTable(course) {
   const row = document.createElement("tr");
   row.className = "border-b";
 
+  console.log(course);
+
   row.innerHTML = `
         <td class="p-3 text-center">${course.name}</td>
         <td class="p-3 text-center">${course.category_name}</td>
@@ -61,34 +60,50 @@ function addCourseToTable(course) {
         <td class="p-3 text-center">${course.course_time}</td>
         <td class="p-3 text-center">${course.duration} min</td>
         <td class="p-3 text-center">${course.max_participants}</td>
+        <td class="text-center p-3 space-x-2">
+            <a class="text-blue-600 hover:underline edit-btn"
+               href="course_edit.php?id=${course.id}">
+                Edit
+            </a>
+
+            <a class="text-red-600 hover:underline delete-btn"
+               href="#"
+               data-id="${course.id}">
+                Delete
+            </a>
+        </td>
     `;
 
   table.appendChild(row);
+   // add event to new row
+  row.querySelector(".delete-btn").addEventListener("click", handleDeleteCourse);
+
 }
 
+//function to handle Delete course 
+async function handleDeleteCourse(e) {
+  e.preventDefault();
 
-// delete course
-document.querySelectorAll(".delete-btn").forEach(btn => {
-  btn.addEventListener("click", async function (e) {
-    e.preventDefault();
+  const id = this.dataset.id;
+  if (!confirm("Delete this course?")) return;
 
-    const id = this.dataset.id;
-
-    if (!confirm("Delete this course?")) return;
-
+  try {
     let response = await fetch("../includes/delete_course.php?id=" + id);
-
     let result = await response.json();
     console.log(result);
 
     if (result.status === "success") {
       showMessage("Course deleted.", "green");
-
-      // remove row from table
       this.closest("tr").remove();
     } else {
       showMessage("Error deleting course.", "red");
     }
-  });
-});
+  } catch (err) {
+    showMessage("Server error.", "red");
+  }
+}
 
+// handle new row
+document.querySelectorAll(".delete-btn").forEach((btn) => {
+  btn.addEventListener("click", handleDeleteCourse);
+});
