@@ -16,7 +16,7 @@ $categories = getAllCategories();
     <!-- TailwindCss -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="./src/output.css">
-    <script src="/fit-manager/public/js/courses.js" defer></script>
+    <script src="../public/js/courses.js" defer></script>
 </head>
 
 <body class="bg-gray-100">
@@ -34,7 +34,8 @@ $categories = getAllCategories();
     <div class="bg-white p-6 rounded shadow">
         <h2 class="text-xl mb-4 font-semibold">Add Course</h2>
 
-        <form id="course-form" method="post" action="../includes/add_course.php" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- action="../includes/add_course.php" -->
+        <form id="course-form" method="post"  class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input class="p-3 border rounded" name="name" placeholder="Course Name" required>
            <select class="p-3 border rounded" name="category_id" required>
                 <option value="" disabled selected>Select Category</option>

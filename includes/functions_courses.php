@@ -6,7 +6,7 @@ function getAllCourses(){
     global $pdo;
     $sql = "SELECT c.*,cat.name As category_name FROM courses c JOIN categories cat ON c.category_id = cat.id ORDER BY c.course_date ASC";
 
-    RETURN $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getCourseById($id){
@@ -34,7 +34,7 @@ function addCourse($data){
         $data["duration"],
         $data["max_participants"],
     ]);
-    return $result;
+    return $pdo->lastInsertId(); // return last id
 }
 
 function deleteCourseById($id){
@@ -96,6 +96,9 @@ $insertedData = [
     "max_participants"=>10,
 ];
 
+
+// $eqs = addCourse($insertedData);
+// echo $eqs;
 
 // $insertDataReturn = addCourse($insertedData);
 
