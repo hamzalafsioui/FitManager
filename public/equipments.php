@@ -2,6 +2,8 @@
 
 require_once "../includes/functions_equip.php";
 $equipments = getAllEquipments();
+$states = getAllStates();
+$types = getAllTypes();
 
 
 
@@ -17,7 +19,7 @@ $equipments = getAllEquipments();
     <!-- Tailwind CSS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="./src/output.css">
-    <script src="./js/equipments.js" defer></script>
+    <script src="../public/js/equipments.js" defer></script>
 </head>
 
 <body class="bg-gray-100">
@@ -37,7 +39,7 @@ $equipments = getAllEquipments();
     <div class="bg-white p-6 shadow rounded mb-6">
         <h2 class="text-xl font-semibold mb-4">Add New Equipment</h2>
 
-        <form id="equipment-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form id="equipment-form" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
             <input 
                 type="text" 
@@ -52,7 +54,12 @@ $equipments = getAllEquipments();
                 class="p-3 border rounded-md w-full"
                 required
             >
-                <option value="">Choose Equipment Type</option>
+             <option value="" disabled selected>Choose Equipment Type</option>
+                <?php foreach ($types as $type): ?>
+                <option value="<?= htmlspecialchars($type['id']) ?>">
+                    <?= htmlspecialchars($type['type_name']) ?>
+                </option>
+                <?php endforeach; ?>
             </select>
 
             <input 
@@ -68,7 +75,12 @@ $equipments = getAllEquipments();
                 class="p-3 border rounded-md w-full"
                 required
             >
-                <option value="">Choose State</option>
+                <option value="" disabled selected>Choose State</option>
+                <?php foreach ($states as $state): ?>
+                <option value="<?= htmlspecialchars($state['id']) ?>">
+                    <?= htmlspecialchars($state['state_name']) ?>
+                </option>
+                <?php endforeach; ?>
             </select>
 
             <button 
