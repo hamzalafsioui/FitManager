@@ -1,0 +1,52 @@
+<mxfile host="65bd71144e">
+    <diagram id="BmvxtwvMBjzbVFTYo_ME" name="Page-1">
+        <mxGraphModel dx="1596" dy="727" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="View Course List" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="40" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Add a Course" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="40" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Edit a Course" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="130" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value=" Delete a Course" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="130" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="View Equipment List" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="220" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&amp;nbsp;Edit Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="310" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Add Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="310" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;strong data-end=&quot;791&quot; data-start=&quot;752&quot;&gt;Assign Equipment to Course&lt;/strong&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="220" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="View Equipment by Type" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="580" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="View Courses by Category" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="490" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="View Total Number of Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="490" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="View Total Number of Courses" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="400" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Delete Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="400" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="the user" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="230" width="110" height="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

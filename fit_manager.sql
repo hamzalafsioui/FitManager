@@ -65,10 +65,21 @@ CREATE TABLE equipments (
 
 -- TABLE ASSOCIATIVE (COURSE - EQUIPMENT)
 CREATE TABLE course_equipment (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     course_id INT NOT NULL,
     equipment_id INT NOT NULL,
+    PRIMARY KEY (course_id, equipment_id),
     FOREIGN KEY (course_id) REFERENCES courses(id),
-    FOREIGN KEY (equipment_id) REFERENCES equipment(id),
-    UNIQUE(course_id,equipment_id)
+    FOREIGN KEY (equipment_id) REFERENCES equipments(id)
 );
+
+
+SHOW TABLES FROM fit_manager;
+select * from courses
+
+
+SELECT 
+    c.*, 
+    cat.name AS category_name
+FROM courses c
+JOIN categories cat ON c.category_id = cat.id
+WHERE c.id = 1;
