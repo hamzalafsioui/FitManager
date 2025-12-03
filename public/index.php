@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__ . "/../includes/functions_courses.php";
-require_once __DIR__ . "/../includes/functions_equip.php";
+
+require_once __DIR__ . "/../includes/functions_data/functions_courses.php";
+require_once __DIR__ . "/../includes/functions_data/functions_equip.php";
+
 
 $total_courses = getTotalCourses();
 $total_equipments = getTotalEquipments();

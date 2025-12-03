@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . "/functions_courses.php";
+
+require_once __DIR__ . "/functions_data/functions_courses.php";
 
 header("Content-Type: application/json");
 
