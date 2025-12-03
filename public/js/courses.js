@@ -1,6 +1,7 @@
 console.log(document.getElementById("course-form"));
 console.log("courses.js loaded");
 
+// add course
 document
   .getElementById("course-form")
   .addEventListener("submit", async function (e) {
@@ -64,3 +65,30 @@ function addCourseToTable(course) {
 
   table.appendChild(row);
 }
+
+
+// delete course
+document.querySelectorAll(".delete-btn").forEach(btn => {
+  btn.addEventListener("click", async function (e) {
+    e.preventDefault();
+
+    const id = this.dataset.id;
+
+    if (!confirm("Delete this course?")) return;
+
+    let response = await fetch("../includes/delete_course.php?id=" + id);
+
+    let result = await response.json();
+    console.log(result);
+
+    if (result.status === "success") {
+      showMessage("Course deleted.", "green");
+
+      // remove row from table
+      this.closest("tr").remove();
+    } else {
+      showMessage("Error deleting course.", "red");
+    }
+  });
+});
+
