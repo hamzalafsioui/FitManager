@@ -3,16 +3,30 @@
 require_once __DIR__ . "/../../db.php";
 
 
-function getAllCourses(){
+function getAllCourses($category_id = "") {
     global $pdo;
-   $sql = "SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,c.max_participants,
+
+    $sql = "SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,c.max_participants,
             cat.name AS category_name
-        FROM courses c
-        JOIN categories cat ON c.category_id = cat.id
-        ORDER BY c.course_date ASC
-    ";
-    return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            FROM courses c
+            JOIN categories cat ON c.category_id = cat.id
+            ";
+
+    $params = [];
+
+    if (!empty($category_id)) {
+        $sql .= " WHERE c.category_id = ? ";
+        $params[] = $category_id;
+    }
+
+    $sql .= " ORDER BY c.course_date ASC";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 function getCourseById($id){
     global $pdo;

@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . "/../includes/functions_data/functions_courses.php";
 
-
-$courses = getAllCourses();
+$selected_category = $_GET['category'] ?? '';
+$courses = getAllCourses($selected_category);
 $categories = getAllCategories();
 
 
@@ -60,9 +60,25 @@ $categories = getAllCategories();
         </form>
     </div>
 
+    
+
     <!-- Table -->
     <div class="bg-white p-6 rounded shadow mt-6">
-        <h2 class="text-xl mb-4 font-semibold">Courses List</h2>
+        <div class = "flex  items-center gap-4">
+            <h2 class="text-xl mb-4 font-semibold">Courses List</h2>
+            <form method="GET" class="mb-4">
+                <select name="category" class="p-2 border rounded" onchange="this.form.submit()">
+                     <option value="">All Courses</option>
+
+                    <?php foreach ($categories as $cat): ?>
+                     <option value="<?= $cat['id'] ?>"
+                    <?= ($selected_category == $cat['id']) ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($cat['name']) ?>
+                    </option>
+                <?php endforeach; ?>
+    </select>
+</form>
+        </div>
 
         <div class="overflow-x-auto">
             <table class="min-w-full table-auto text-sm">
