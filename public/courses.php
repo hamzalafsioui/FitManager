@@ -4,6 +4,7 @@ require_once __DIR__ . "/../includes/functions_data/functions_courses.php";
 $selected_category = $_GET['category'] ?? '';
 $courses = getAllCourses($selected_category);
 $categories = getAllCategories();
+$total_upcoming_month = getUpcomingCoursesThisMonth();
 
 
 ?>

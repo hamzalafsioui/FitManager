@@ -112,6 +112,16 @@ function getUpcomingCourses(){
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getUpcomingCoursesThisMonth() {
+    global $pdo;
+    $sql = "SELECT COUNT(*) AS total 
+            FROM courses 
+            WHERE MONTH(course_date) = MONTH(CURRENT_DATE()) 
+              AND YEAR(course_date) = YEAR(CURRENT_DATE())";
+    $stmt = $pdo->query($sql);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+}
 
 $count = getTotalCourses();
 // echo $count;
@@ -149,5 +159,6 @@ $insertedData = [
 
 // $upcomming = getUpcommingCourses();
 
-// print_r($upcomming);
+// $upcomingCountMonth = getUpcomingCoursesThisMonth();
+// print_r($upcomingCountMonth);
 ?>

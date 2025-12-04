@@ -14,6 +14,8 @@ $total_courses = getTotalCourses();
 $total_equipments = getTotalEquipments();
 
 $upcomming_courses = getUpcomingCourses();
+$total_upcoming_month = getUpcomingCoursesThisMonth();
+
 
 ?>
 <!DOCTYPE html>
@@ -65,11 +67,14 @@ $upcomming_courses = getUpcomingCourses();
                 </span>
             </div>
 
-            <!-- Card category -->
-            <div class="bg-white shadow rounded p-6">
-                <h2 class="text-gray-500 text-center">Courses by Category</h2>
-                <canvas id="coursesChart" class="w-full h-56"></canvas>
+            <!-- upcoming courses in this month -->
+            <div class="bg-white shadow rounded p-6 flex flex-col items-center">
+                <h2 class="text-gray-500">Upcoming Courses This Month</h2>
+                <span class="text-4xl font-bold text-purple-600">
+                <?= htmlspecialchars($total_upcoming_month) ?>
+                </span>
             </div>
+
 
         </div>
 
