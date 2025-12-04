@@ -12,6 +12,9 @@ $allEquipments = getAllEquipments();
 
 $total_courses = getTotalCourses();
 $total_equipments = getTotalEquipments();
+
+$upcomming_courses = getUpcomingCourses();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +89,18 @@ $total_equipments = getTotalEquipments();
                             <th class="p-3">Max Participants</th>
                         </tr>
                     </thead>
-                    <tbody id="courses-table"></tbody>
+                    <tbody id="courses-table">
+                        <?php foreach ($upcomming_courses as $course): ?>
+                     <tr class="border-b">
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['name']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['category_name']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['course_date']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['course_time']) ?></td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['duration']) ?> min</td>
+                        <td class="p-3 text-center"><?= htmlspecialchars($course['max_participants']) ?></td>   
+                    </tr>
+            <?php endforeach; ?>
+                    </tbody>
                 </table>
             </div>
         </div>

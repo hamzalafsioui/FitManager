@@ -86,6 +86,17 @@ function getTotalCourses(){
 
 }
 
+function getUpcomingCourses(){
+     global $pdo;
+   $sql = "SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,c.max_participants,
+            cat.name AS category_name
+        FROM courses c
+        JOIN categories cat ON c.category_id = cat.id
+        WHERE c.course_date >= CURRENT_DATE()
+        ORDER BY c.course_date ASC
+    ";
+    return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 $count = getTotalCourses();
@@ -121,4 +132,8 @@ $insertedData = [
 
 // $categories = getAllCategories();
 // print_r($categories);
+
+// $upcomming = getUpcommingCourses();
+
+// print_r($upcomming);
 ?>
