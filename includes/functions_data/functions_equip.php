@@ -57,9 +57,23 @@ function updateEquipmentById($id, $data) {
 
 function deleteEquipmentById($id) {
     global $pdo;
-    $stmt = $pdo->prepare("DELETE FROM equipments WHERE id=?");
-    return $stmt->execute([$id]);
+
+    // Check if equipment is linked
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM course_equipment WHERE equipment_id = ?");
+    $stmt->execute([$id]);
+    $count = $stmt->fetchColumn();
+
+    if ($count > 0) {
+        return ["status" => "linked"];
+    }
+
+    // If not linked, delete
+    $stmt = $pdo->prepare("DELETE FROM equipments WHERE id = ?");
+    $stmt->execute([$id]);
+
+    return ["status" => "success"];
 }
+
 
 function getAllTypes() {
     global $pdo;
@@ -93,6 +107,12 @@ $insertedData = [
 
 // $tota_eq = getTotalEquipments();
 // echo $tota_eq;
+
+// print_r(deleteEquipmentById(1));
+// echo deleteEquipmentById(1)["status"];
+// if(deleteEquipmentById(1)["status"] === "linked"){
+//     echo " linked";
+// }
 
 ?>
 

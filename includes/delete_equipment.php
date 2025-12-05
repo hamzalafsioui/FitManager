@@ -12,9 +12,11 @@ if (!isset($_GET["id"])) {
 
 $id = $_GET["id"];
 
-if (deleteEquipmentById($id)) {
+$result = deleteEquipmentById($id);
+
+if ($result["status"] === "success") {
     echo json_encode(["status" => "success"]);
 } else {
-    echo json_encode(["status" => "error"]);
+    echo json_encode(["status" => "error", "message" => "Equipment is linked to a course"]);
 }
 exit;

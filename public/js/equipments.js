@@ -63,6 +63,7 @@ function addEquipmentToTable(equipment) {
 async function handleDeleteEquipment(e) {
   e.preventDefault();
   const id = this.dataset.id;
+
   if (!confirm("Delete this equipment?")) return;
 
   try {
@@ -73,14 +74,18 @@ async function handleDeleteEquipment(e) {
     if (result.status === "success") {
       showMessage("Equipment deleted.", "green");
       this.closest("tr").remove();
+    } else if (result.status === "error" && result.message) {
+      alert(result.message);  // <-- popup alert here
     } else {
       showMessage(result.message || "Error deleting equipment.", "red");
     }
+
   } catch (err) {
     console.error(err);
     showMessage("Server error.", "red");
   }
 }
+
 
 // add event to new row
 document.querySelectorAll(".delete-btn").forEach(btn => {
