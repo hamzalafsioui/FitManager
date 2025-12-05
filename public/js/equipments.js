@@ -75,7 +75,7 @@ async function handleDeleteEquipment(e) {
       showMessage("Equipment deleted.", "green");
       this.closest("tr").remove();
     } else if (result.status === "error" && result.message) {
-      alert(result.message);  // <-- popup alert here
+      alert(result.message);
     } else {
       showMessage(result.message || "Error deleting equipment.", "red");
     }
