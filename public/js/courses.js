@@ -40,7 +40,7 @@ function showMessage(text, color) {
   msg.className = `p-3 mb-4 text-${color}-700 bg-${color}-200 rounded`;
   msg.innerText = text;
 
-  document.querySelector("main").prepend(msg);
+  document.querySelector("main").prepend(msg); // add SMS at first in main
 
   setTimeout(() => msg.remove(), 3000);
 }

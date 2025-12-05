@@ -17,7 +17,7 @@ document.getElementById("equipment-form").addEventListener("submit", async funct
 
     if (result.status === "success") {
       showMessage("Equipment added successfully!", "green");
-      addEquipmentToTable(result.equipment); // must match JSON from PHP
+      addEquipmentToTable(result.equipment); // add new equipment to table by use return data from PHP
       this.reset();
     } else {
       showMessage(result.message || "Error adding equipment.", "red");
@@ -34,7 +34,7 @@ function showMessage(text, color) {
   msg.className = `p-3 mb-4 text-${color}-700 bg-${color}-200 rounded`;
   msg.innerText = text;
   document.querySelector("main").prepend(msg);
-  setTimeout(() => msg.remove(), 3000);
+  setTimeout(() => msg.remove(), 3000); // display message only for 3s
 }
 
 // ===== ADD ROW TO TABLE =====
@@ -55,8 +55,8 @@ function addEquipmentToTable(equipment) {
   `;
   table.appendChild(row);
 
-  attachEditToNewRow(row);
-  attachDeleteToNewRow(row);
+  attachEditToNewRow(row); // handle new row [EDIT]
+  attachDeleteToNewRow(row); // handle new row [DELETE]
 }
 
 // ===== DELETE EQUIPMENT =====
@@ -99,7 +99,7 @@ const editForm = document.getElementById("edit-equipment-form");
 
 async function handleEditEquipment(e) {
   e.preventDefault();
-  const id = this.dataset.id;
+  const id = this.dataset.id; // USE dataset to get equipment data
 
   try {
     const response = await fetch(`../includes/get_equipment.php?id=${id}`);
@@ -138,8 +138,8 @@ closeModalBtn.addEventListener("click", () => {
 // ===== SUBMIT EDIT FORM =======
 editForm.addEventListener("submit", async function(e) {
   e.preventDefault();
-  const formData = new FormData(this);
-  const id = formData.get("id");
+  const formData = new FormData(this); // use class FormData to store data form into object
+  const id = formData.get("id"); // get equipmentId to add it to btns
 
   try {
     const response = await fetch("../includes/update_equipment.php", {
@@ -152,7 +152,7 @@ editForm.addEventListener("submit", async function(e) {
     if (result.status === "success") {
       showMessage("Equipment updated successfully!", "green");
 
-      const row = document.querySelector(`.edit-btn[data-id="${id}"]`).closest("tr");
+      const row = document.querySelector(`.edit-btn[data-id="${id}"]`).closest("tr"); // get anchor tr
       row.children[0].textContent = formData.get("name");
       row.children[1].textContent = document.getElementById("edit-equipment-type").selectedOptions[0].text;
       row.children[2].textContent = formData.get("quantity");

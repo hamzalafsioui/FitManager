@@ -62,7 +62,7 @@ function addCourse($data)
         $data["duration"],
         $data["max_participants"],
     ]);
-    return $pdo->lastInsertId(); // return last id
+    return $pdo->lastInsertId(); // return latest id
 }
 
 function deleteCourseById($id)
