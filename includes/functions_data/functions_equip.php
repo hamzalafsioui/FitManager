@@ -2,7 +2,8 @@
 
 require_once __DIR__ . "/../../db.php";
 
-function getAllEquipments() {
+function getAllEquipments()
+{
     global $pdo;
     $sql = "SELECT e.*, t.type_name, s.state_name
             FROM equipments e
@@ -11,7 +12,8 @@ function getAllEquipments() {
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getEquipmentById($id) {
+function getEquipmentById($id)
+{
     global $pdo;
     $stmt = $pdo->prepare(" SELECT e.*, t.type_name, s.state_name, t.id AS type_id, s.id AS state_id
         FROM equipments e
@@ -23,7 +25,8 @@ function getEquipmentById($id) {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function addEquipment($data) {
+function addEquipment($data)
+{
     global $pdo;
     $stmt = $pdo->prepare("
         INSERT INTO equipments (name, type_id, quantity, state_id)
@@ -39,7 +42,8 @@ function addEquipment($data) {
     return $pdo->lastInsertId();
 }
 
-function updateEquipmentById($id, $data) {
+function updateEquipmentById($id, $data)
+{
     global $pdo;
     $stmt = $pdo->prepare("
         UPDATE equipments
@@ -55,7 +59,8 @@ function updateEquipmentById($id, $data) {
     ]);
 }
 
-function deleteEquipmentById($id) {
+function deleteEquipmentById($id)
+{
     global $pdo;
 
     // Check if equipment is linked
@@ -75,31 +80,33 @@ function deleteEquipmentById($id) {
 }
 
 
-function getAllTypes() {
+function getAllTypes()
+{
     global $pdo;
     return $pdo->query("SELECT * FROM equipment_types")->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getAllStates() {
+function getAllStates()
+{
     global $pdo;
     return $pdo->query("SELECT * FROM equipment_states")->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getTotalEquipments(){
+function getTotalEquipments()
+{
     global $pdo;
     $stmt =  $pdo->query("SELECT count(*) AS total_equipments FROM equipments");
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result["total_equipments"];
-
 }
 
 
 $insertedData = [
-    "name"=> "Gym Ball_",
-    "type_id"=>2,
-    "quantity"=> 8,
-    "state_id"=>2
-    
+    "name" => "Gym Ball_",
+    "type_id" => 2,
+    "quantity" => 8,
+    "state_id" => 2
+
 ];
 // $eqs = getAllEquipments();
 // $eqs = deleteEquipmentById(4);
@@ -113,8 +120,3 @@ $insertedData = [
 // if(deleteEquipmentById(1)["status"] === "linked"){
 //     echo " linked";
 // }
-
-?>
-
-
-

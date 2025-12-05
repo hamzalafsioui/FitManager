@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    $equip = getEquipmentById($id); 
+    $equip = getEquipmentById($id);
 
     if ($equip) {
         echo json_encode([

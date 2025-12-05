@@ -2,7 +2,8 @@
 
 require_once __DIR__ . "/../../db.php";
 
-function getAllCourseEquipment() {
+function getAllCourseEquipment()
+{
     global $pdo;
 
     $sql = " SELECT ce.course_id,ce.equipment_id,c.name AS course_name,cat.name AS category_name,
@@ -19,11 +20,11 @@ function getAllCourseEquipment() {
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function addCourseEquipment($data) {
+function addCourseEquipment($data)
+{
     global $pdo;
     $stmt = $pdo->prepare(" INSERT INTO course_equipment (course_id, equipment_id) 
     VALUES (?, ?)
     ");
     return $stmt->execute([$data["course_id"], $data["equipment_id"]]);
 }
-

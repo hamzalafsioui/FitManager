@@ -16,4 +16,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     header("Location: ../public/index.php?error=1");
     exit;
 }
-?>

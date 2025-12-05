@@ -3,7 +3,8 @@
 require_once __DIR__ . "/../../db.php";
 
 
-function getAllCourses($category_id = "") {
+function getAllCourses($category_id = "")
+{
     global $pdo;
 
     $sql = "SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,c.max_participants,
@@ -28,9 +29,10 @@ function getAllCourses($category_id = "") {
 }
 
 
-function getCourseById($id){
+function getCourseById($id)
+{
     global $pdo;
-     $stmt = $pdo->prepare("SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,
+    $stmt = $pdo->prepare("SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,
             c.max_participants,
             cat.name AS category_name
         FROM courses c
@@ -44,7 +46,8 @@ function getCourseById($id){
     return $result;
 }
 
-function addCourse($data){
+function addCourse($data)
+{
     global $pdo;
     $stmt = $pdo->prepare(
         "INSERT INTO courses (name,category_id,course_date,course_time,duration,max_participants) 
@@ -62,14 +65,16 @@ function addCourse($data){
     return $pdo->lastInsertId(); // return last id
 }
 
-function deleteCourseById($id){
+function deleteCourseById($id)
+{
     global $pdo;
     $stmt = $pdo->prepare("DELETE FROM courses WHERE id = ?");
 
     return $stmt->execute(["$id"]);
 }
 
-function updateCourseById($id, $data) {
+function updateCourseById($id, $data)
+{
     global $pdo;
     $stmt = $pdo->prepare("
         UPDATE courses SET
@@ -87,22 +92,24 @@ function updateCourseById($id, $data) {
     ]);
 }
 
-function getAllCategories(){
+function getAllCategories()
+{
     global $pdo;
     return  $pdo->query("SELECT * FROM categories")->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getTotalCourses(){
+function getTotalCourses()
+{
     global $pdo;
     $stmt =  $pdo->query("SELECT count(*) AS total_courses FROM courses");
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result["total_courses"];
-
 }
 
-function getUpcomingCourses(){
-     global $pdo;
-   $sql = "SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,c.max_participants,
+function getUpcomingCourses()
+{
+    global $pdo;
+    $sql = "SELECT c.id,c.name,c.category_id,c.course_date,c.course_time,c.duration,c.max_participants,
             cat.name AS category_name
         FROM courses c
         JOIN categories cat ON c.category_id = cat.id
@@ -112,7 +119,8 @@ function getUpcomingCourses(){
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getUpcomingCoursesThisMonth() {
+function getUpcomingCoursesThisMonth()
+{
     global $pdo;
     $sql = "SELECT COUNT(*) AS total 
             FROM courses 
@@ -134,12 +142,12 @@ $newVar = getCourseById(1);
 // print_r($customVariable);
 
 $insertedData = [
-    "name"=> "Yoga x",
-    "category_id"=>1,
-    "course_date"=> date("Y-m-d"),
-    "course_time"=>"08:00:00",
-    "duration"=>40,
-    "max_participants"=>10,
+    "name" => "Yoga x",
+    "category_id" => 1,
+    "course_date" => date("Y-m-d"),
+    "course_time" => "08:00:00",
+    "duration" => 40,
+    "max_participants" => 10,
 ];
 
 
@@ -161,4 +169,3 @@ $insertedData = [
 
 // $upcomingCountMonth = getUpcomingCoursesThisMonth();
 // print_r($upcomingCountMonth);
-?>
