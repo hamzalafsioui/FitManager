@@ -10,17 +10,23 @@ CREATE TABLE roles(
 );
 
 -- TABLE USERS
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    role_id INT NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
-    gender char NOT NULL,
+    gender CHAR(1),
     age INT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    is_active TINYINT(1) DEFAULT 1
-
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    is_active TINYINT(1) DEFAULT 1,
+    FOREIGN KEY (role_id) REFERENCES roles(id)
 );
+
 
 -- TABLE COURSES
 CREATE TABLE courses (
@@ -71,6 +77,11 @@ CREATE TABLE course_equipment (
     FOREIGN KEY (course_id) REFERENCES courses(id),
     FOREIGN KEY (equipment_id) REFERENCES equipments(id)
 );
+
+INSERT INTO roles (name) VALUES 
+('admin'),
+('trainer'),
+('member');
 
 
 SHOW TABLES FROM fit_manager;
