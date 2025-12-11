@@ -2,6 +2,11 @@
 
 require_once __DIR__ . "/../includes/functions_data/functions_equip.php";
 
+// auth_session
+require_once __DIR__ . "/../app/auth/auth_session.php";
+requireLogin();
+requireRole([1, 2]);
+
 $equipments = getAllEquipments();
 $states = getAllStates();
 $types = getAllTypes();
@@ -27,10 +32,15 @@ $types = getAllTypes();
 <body class="bg-gray-100">
 
     <!-- Header -->
-    <header class="bg-green-600 text-white p-4 shadow">
+    <header class="bg-blue-600 text-white p-4 shadow">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
-            <h1 class="text-2xl font-bold">Equipments</h1>
-            <a href="index.php" class="hover:underline text-lg">Dashboard</a>
+            <h1 class="text-2xl font-bold">Fit Manager Dashboard</h1>
+
+            <nav class="flex gap-4 text-lg">
+                <a href="courses.php" class="hover:underline">Courses</a>
+                <a href="equipments.php" class="hover:underline">Equipments</a>
+                <a href="../app/auth/logout.php" class="text-red-600 font-semibold hover:underline">Logout</a>
+            </nav>
         </div>
     </header>
 
@@ -38,56 +48,58 @@ $types = getAllTypes();
     <main class="container mx-auto px-4 mt-6">
 
         <!-- Add Equipment Form -->
-        <div class="bg-white p-6 shadow rounded mb-6">
-            <h2 class="text-xl font-semibold mb-4">Add New Equipment</h2>
+        <?php if (isAdmin()): ?>
+            <div class="bg-white p-6 shadow rounded mb-6">
+                <h2 class="text-xl font-semibold mb-4">Add New Equipment</h2>
 
-            <form id="equipment-form" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form id="equipment-form" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Equipment Name"
-                    class="p-3 border rounded-md w-full"
-                    required>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Equipment Name"
+                        class="p-3 border rounded-md w-full"
+                        required>
 
-                <select
-                    name="type_id"
-                    class="p-3 border rounded-md w-full"
-                    required>
-                    <option value="" disabled selected>Choose Equipment Type</option>
-                    <?php foreach ($types as $type): ?>
-                        <option value="<?= htmlspecialchars($type['id']) ?>">
-                            <?= htmlspecialchars($type['type_name']) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                    <select
+                        name="type_id"
+                        class="p-3 border rounded-md w-full"
+                        required>
+                        <option value="" disabled selected>Choose Equipment Type</option>
+                        <?php foreach ($types as $type): ?>
+                            <option value="<?= htmlspecialchars($type['id']) ?>">
+                                <?= htmlspecialchars($type['type_name']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
 
-                <input
-                    type="number"
-                    name="quantity"
-                    placeholder="Quantity"
-                    class="p-3 border rounded-md w-full"
-                    required>
+                    <input
+                        type="number"
+                        name="quantity"
+                        placeholder="Quantity"
+                        class="p-3 border rounded-md w-full"
+                        required>
 
-                <select
-                    name="state_id"
-                    class="p-3 border rounded-md w-full"
-                    required>
-                    <option value="" disabled selected>Choose State</option>
-                    <?php foreach ($states as $state): ?>
-                        <option value="<?= htmlspecialchars($state['id']) ?>">
-                            <?= htmlspecialchars($state['state_name']) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                    <select
+                        name="state_id"
+                        class="p-3 border rounded-md w-full"
+                        required>
+                        <option value="" disabled selected>Choose State</option>
+                        <?php foreach ($states as $state): ?>
+                            <option value="<?= htmlspecialchars($state['id']) ?>">
+                                <?= htmlspecialchars($state['state_name']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
 
-                <button
-                    type="submit"
-                    class="col-span-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition">
-                    Add Equipment
-                </button>
-            </form>
-        </div>
+                    <button
+                        type="submit"
+                        class="col-span-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition">
+                        Add Equipment
+                    </button>
+                </form>
+            </div>
+        <?php endif; ?>
 
 
         <!-- Equipment Table -->
@@ -133,37 +145,39 @@ $types = getAllTypes();
         </div>
 
         <!-- Edit Equipment Modal -->
-        <div id="editEquipModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-            <div class="bg-white rounded shadow-lg p-6 w-full max-w-md relative">
-                <h2 class="text-xl mb-4 font-semibold">Edit Equipment</h2>
-                <form id="edit-equipment-form" class="grid grid-cols-1 gap-4">
-                    <input type="hidden" name="id" id="edit-equipment-id">
+        <?php if (isAdmin()): ?>
+            <div id="editEquipModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                <div class="bg-white rounded shadow-lg p-6 w-full max-w-md relative">
+                    <h2 class="text-xl mb-4 font-semibold">Edit Equipment</h2>
+                    <form id="edit-equipment-form" class="grid grid-cols-1 gap-4">
+                        <input type="hidden" name="id" id="edit-equipment-id">
 
-                    <input type="text" class="p-3 border rounded" name="name" id="edit-equipment-name" placeholder="Equipment Name" required>
+                        <input type="text" class="p-3 border rounded" name="name" id="edit-equipment-name" placeholder="Equipment Name" required>
 
-                    <select class="p-3 border rounded" name="type_id" id="edit-equipment-type" required>
-                        <option value="" disabled>Select Type</option>
-                        <?php foreach ($types as $type): ?>
-                            <option value="<?= $type['id'] ?>"><?= htmlspecialchars($type['type_name']) ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                        <select class="p-3 border rounded" name="type_id" id="edit-equipment-type" required>
+                            <option value="" disabled>Select Type</option>
+                            <?php foreach ($types as $type): ?>
+                                <option value="<?= $type['id'] ?>"><?= htmlspecialchars($type['type_name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
 
-                    <input type="number" class="p-3 border rounded" name="quantity" id="edit-equipment-quantity" placeholder="Quantity" required>
+                        <input type="number" class="p-3 border rounded" name="quantity" id="edit-equipment-quantity" placeholder="Quantity" required>
 
-                    <select class="p-3 border rounded" name="state_id" id="edit-equipment-state" required>
-                        <option value="" disabled>Select State</option>
-                        <?php foreach ($states as $state): ?>
-                            <option value="<?= $state['id'] ?>"><?= htmlspecialchars($state['state_name']) ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                        <select class="p-3 border rounded" name="state_id" id="edit-equipment-state" required>
+                            <option value="" disabled>Select State</option>
+                            <?php foreach ($states as $state): ?>
+                                <option value="<?= $state['id'] ?>"><?= htmlspecialchars($state['state_name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
 
-                    <div class="flex justify-end gap-2 mt-4">
-                        <button type="button" id="closeEquipModal" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
-                        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update</button>
-                    </div>
-                </form>
+                        <div class="flex justify-end gap-2 mt-4">
+                            <button type="button" id="closeEquipModal" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
+                            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 
     </main>
 

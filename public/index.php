@@ -5,7 +5,10 @@ require_once __DIR__ . "/../includes/functions_data/functions_equip.php";
 
 // COURSE EQUIPMENT
 require_once __DIR__ . "/../includes/functions_data/functions_course_equipment.php";
-
+// auth_session
+require_once __DIR__ . "/../app/auth/auth_session.php";
+requireLogin();
+requireRole([1, 2]);
 $links = getAllCourseEquipment();
 $allCourses = getAllCourses();
 $allEquipments = getAllEquipments();
@@ -15,7 +18,6 @@ $total_equipments = getTotalEquipments();
 
 $upcomming_courses = getUpcomingCourses();
 $total_upcoming_month = getUpcomingCoursesThisMonth();
-
 
 ?>
 <!DOCTYPE html>
@@ -43,6 +45,7 @@ $total_upcoming_month = getUpcomingCoursesThisMonth();
             <nav class="flex gap-4 text-lg">
                 <a href="courses.php" class="hover:underline">Courses</a>
                 <a href="equipments.php" class="hover:underline">Equipments</a>
+                <a href="../app/auth/logout.php" class="text-red-600 font-semibold hover:underline">Logout</a>
             </nav>
         </div>
     </header>
@@ -143,37 +146,38 @@ $total_upcoming_month = getUpcomingCoursesThisMonth();
         </div>
 
         <!-- ADD NEW LINK -->
-        <div class="bg-white p-6 shadow rounded mt-6">
-            <h2 class="text-xl font-semibold mb-4">Add New Course - Equipment Link</h2>
+        <?php if (isAdmin()): ?>
+            <div class="bg-white p-6 shadow rounded mt-6">
+                <h2 class="text-xl font-semibold mb-4">Add New Course - Equipment Link</h2>
 
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-4" method="POST" action="../includes/add_course_equipment.php">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-4" method="POST" action="../includes/add_course_equipment.php">
 
-                <select name="course_id" class="p-3 border rounded" required>
-                    <option value="" disabled selected>Select Course</option>
-                    <?php foreach ($allCourses as $c): ?>
-                        <option value="<?= htmlspecialchars($c['id']) ?>">
-                            <?= htmlspecialchars($c['name']) ?> (<?= htmlspecialchars($c['category_name']) ?>)
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                    <select name="course_id" class="p-3 border rounded" required>
+                        <option value="" disabled selected>Select Course</option>
+                        <?php foreach ($allCourses as $c): ?>
+                            <option value="<?= htmlspecialchars($c['id']) ?>">
+                                <?= htmlspecialchars($c['name']) ?> (<?= htmlspecialchars($c['category_name']) ?>)
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
 
-                <select name="equipment_id" class="p-3 border rounded" required>
-                    <option value="" disabled selected>Select Equipment</option>
-                    <?php foreach ($allEquipments as $e): ?>
-                        <option value="<?= htmlspecialchars($e['id']) ?>">
-                            <?= htmlspecialchars($e['name']) ?> - <?= htmlspecialchars($e['type_name']) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                    <select name="equipment_id" class="p-3 border rounded" required>
+                        <option value="" disabled selected>Select Equipment</option>
+                        <?php foreach ($allEquipments as $e): ?>
+                            <option value="<?= htmlspecialchars($e['id']) ?>">
+                                <?= htmlspecialchars($e['name']) ?> - <?= htmlspecialchars($e['type_name']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
 
-                <button
-                    type="submit"
-                    class="col-span-full bg-purple-600 text-white py-3 rounded hover:bg-purple-700 hover:cursor-pointer">
-                    Add Link
-                </button>
-            </form>
-        </div>
-
+                    <button
+                        type="submit"
+                        class="col-span-full bg-purple-600 text-white py-3 rounded hover:bg-purple-700 hover:cursor-pointer">
+                        Add Link
+                    </button>
+                </form>
+            </div>
+        <?php endif; ?>
 
     </main>
 

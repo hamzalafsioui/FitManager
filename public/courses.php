@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . "/../includes/functions_data/functions_courses.php";
-
+// auth_session
+require_once __DIR__ . "/../app/auth/auth_session.php";
+requireLogin();
+requireRole([1,2]);
 $selected_category = $_GET['category'] ?? '';
 $courses = getAllCourses($selected_category);
 $categories = getAllCategories();
@@ -25,42 +28,50 @@ $total_upcoming_month = getUpcomingCoursesThisMonth();
 <body class="bg-gray-100">
 
     <header class="bg-blue-600 text-white p-4 shadow">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-2xl font-bold">Courses</h1>
-            <a href="index.php" class="hover:underline">Dashboard</a>
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
+            <h1 class="text-2xl font-bold">Fit Manager Dashboard</h1>
+
+            <nav class="flex gap-4 text-lg">
+                <a href="courses.php" class="hover:underline">Courses</a>
+                <a href="equipments.php" class="hover:underline">Equipments</a>
+                <a href="../app/auth/logout.php" class="text-red-600 font-semibold hover:underline">Logout</a>
+            </nav>
         </div>
     </header>
 
     <main class="container mx-auto mt-6 px-4">
 
         <!-- Form -->
-        <div class="bg-white p-6 rounded shadow">
-            <h2 class="text-xl mb-4 font-semibold">Add Course</h2>
+        <?php if (isAdmin()): ?>
 
-            <!-- action="../includes/add_course.php" -->
-            <form id="course-form" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input class="p-3 border rounded" name="name" placeholder="Course Name" required>
-                <select class="p-3 border rounded" name="category_id" required>
-                    <option value="" disabled selected>Select Category</option>
-                    <?php foreach ($categories as $category): ?>
-                        <option value="<?= htmlspecialchars($category['id']) ?>">
-                            <?= htmlspecialchars($category['name']) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+            <div class="bg-white p-6 rounded shadow">
+                <h2 class="text-xl mb-4 font-semibold">Add Course</h2>
+
+                <!-- action="../includes/add_course.php" -->
+                <form id="course-form" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input class="p-3 border rounded" name="name" placeholder="Course Name" required>
+                    <select class="p-3 border rounded" name="category_id" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <?php foreach ($categories as $category): ?>
+                            <option value="<?= htmlspecialchars($category['id']) ?>">
+                                <?= htmlspecialchars($category['name']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
 
 
-                <input type="date" class="p-3 border rounded" name="course_date" required>
-                <input type="time" class="p-3 border rounded" name="course_time" required>
+                    <input type="date" class="p-3 border rounded" name="course_date" required>
+                    <input type="time" class="p-3 border rounded" name="course_time" required>
 
-                <input type="number" class="p-3 border rounded" name="duration" placeholder="Duration" required>
-                <input type="number" class="p-3 border rounded" name="max_participants" placeholder="Max Participants" required>
+                    <input type="number" class="p-3 border rounded" name="duration" placeholder="Duration" required>
+                    <input type="number" class="p-3 border rounded" name="max_participants" placeholder="Max Participants" required>
 
-                <button type="submit" class="col-span-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">
-                    Add Course
-                </button>
-            </form>
-        </div>
+                    <button type="submit" class="col-span-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">
+                        Add Course
+                    </button>
+                </form>
+            </div>
+        <?php endif; ?>
 
 
 
@@ -128,33 +139,35 @@ $total_upcoming_month = getUpcomingCoursesThisMonth();
         </div>
 
         <!-- Edit Course Modal -->
-        <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-            <div class="bg-white rounded shadow-lg p-6 w-full max-w-md relative">
-                <h2 class="text-xl mb-4 font-semibold">Edit Course</h2>
-                <form id="edit-course-form" class="grid grid-cols-1 gap-4">
-                    <input type="hidden" name="id" id="edit-course-id">
+        <?php if (isAdmin()): ?>
+            <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                <div class="bg-white rounded shadow-lg p-6 w-full max-w-md relative">
+                    <h2 class="text-xl mb-4 font-semibold">Edit Course</h2>
+                    <form id="edit-course-form" class="grid grid-cols-1 gap-4">
+                        <input type="hidden" name="id" id="edit-course-id">
 
-                    <input type="text" class="p-3 border rounded" name="name" id="edit-course-name" placeholder="Course Name" required>
+                        <input type="text" class="p-3 border rounded" name="name" id="edit-course-name" placeholder="Course Name" required>
 
-                    <select class="p-3 border rounded" name="category_id" id="edit-course-category" required>
-                        <option value="" disabled>Select Category</option>
-                        <?php foreach ($categories as $category): ?>
-                            <option value="<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                        <select class="p-3 border rounded" name="category_id" id="edit-course-category" required>
+                            <option value="" disabled>Select Category</option>
+                            <?php foreach ($categories as $category): ?>
+                                <option value="<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
 
-                    <input type="date" class="p-3 border rounded" name="course_date" id="edit-course-date" required>
-                    <input type="time" class="p-3 border rounded" name="course_time" id="edit-course-time" required>
-                    <input type="number" class="p-3 border rounded" name="duration" id="edit-course-duration" placeholder="Duration" required>
-                    <input type="number" class="p-3 border rounded" name="max_participants" id="edit-course-max" placeholder="Max Participants" required>
+                        <input type="date" class="p-3 border rounded" name="course_date" id="edit-course-date" required>
+                        <input type="time" class="p-3 border rounded" name="course_time" id="edit-course-time" required>
+                        <input type="number" class="p-3 border rounded" name="duration" id="edit-course-duration" placeholder="Duration" required>
+                        <input type="number" class="p-3 border rounded" name="max_participants" id="edit-course-max" placeholder="Max Participants" required>
 
-                    <div class="flex justify-end gap-2 mt-4">
-                        <button type="button" id="closeModal" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
-                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update</button>
-                    </div>
-                </form>
+                        <div class="flex justify-end gap-2 mt-4">
+                            <button type="button" id="closeModal" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 
     </main>
 
