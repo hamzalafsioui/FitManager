@@ -9,8 +9,9 @@ function getUserByEmail(string $email) {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+// ?string $gender => ? can contains value or null
 
-function createUser(string $email, string $password, string $first_name, string $last_name, ?string $gender, ?int $age, int $role_id = 2) {
+function createUser(string $email, string $password, string $first_name, string $last_name, string $gender, int $age, int $role_id = 2) {
     global $pdo;
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
