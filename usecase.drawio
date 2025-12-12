@@ -1,190 +1,409 @@
 <mxfile host="65bd71144e">
     <diagram id="BmvxtwvMBjzbVFTYo_ME" name="Page-1">
-        <mxGraphModel dx="1068" dy="1757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="688" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="4" value="View Course List" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1360" width="120" height="80" as="geometry"/>
+                <mxCell id="admin" value="ADMIN" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="300" width="110" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="Add a Course" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="510" y="1360" width="120" height="80" as="geometry"/>
+                <mxCell id="trainer" value="TRAINER" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="600" width="110" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="Edit a Course" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1450" width="120" height="80" as="geometry"/>
+                <mxCell id="auth_general" value="Authentication" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="200" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value=" Delete a Course" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="510" y="1450" width="120" height="80" as="geometry"/>
+                <mxCell id="auth_login" value="Login" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="200" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="View Equipment List" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="510" y="1540" width="120" height="80" as="geometry"/>
+                <mxCell id="auth_register" value="Register" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="200" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="&amp;nbsp;Edit Equipment" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="510" y="1630" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_add_course" value="Add Course" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="350" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="Add Equipment" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1630" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_edit_course" value="Edit Course" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="350" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="&lt;strong data-end=&quot;791&quot; data-start=&quot;752&quot;&gt;Assign Equipment to Course&lt;/strong&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1540" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_delete_course" value="Delete Course" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="350" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="View Equipment by Type" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1900" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_view_courses" value="View Course List" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="350" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="View Courses by Category" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="510" y="1810" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_view_courses_category" value="View Courses by Category" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="350" width="140" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="View Total Number of Equipment" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1810" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_view_total_courses" value="View Total Number of Courses" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1020" y="350" width="160" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="View Total Number of Courses" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="510" y="1720" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_view_upcoming_courses" value="View Upcoming Courses" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="470" width="140" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="Delete Equipment" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1720" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_view_upcoming_month" value="View Upcoming Courses This Month" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="470" width="180" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="ADMIN" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="230" width="110" height="150" as="geometry"/>
+                <mxCell id="uc_add_equipment" value="Add Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="590" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="gerer les courses" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="70" width="120" height="80" as="geometry"/>
+                <mxCell id="uc_edit_equipment" value="Edit Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="590" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="" style="endArrow=classic;html=1;entryX=-0.003;entryY=0.662;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="17" target="18">
+                <mxCell id="uc_delete_equipment" value="Delete Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="590" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_view_equipment" value="View Equipment List" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="590" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_view_equipment_type" value="View Equipment by Type" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="590" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_view_total_equipment" value="View Total Number of Equipment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1020" y="590" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_assign_equipment" value="Assign Equipment to Course" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="710" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_view_course_equipment" value="View Course-Equipment Assignments" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="710" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_view_dashboard" value="View Dashboard" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="830" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_trainer_view_courses" value="View Course List" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="950" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_trainer_view_courses_category" value="View Courses by Category" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="950" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_trainer_view_equipment" value="View Equipment List" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="570" y="950" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_trainer_view_equipment_type" value="View Equipment by Type" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="950" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_trainer_view_totals" value="View Statistics" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="950" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_trainer_view_upcoming" value="View Upcoming Courses" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1040" y="950" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_admin_login" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="auth_login">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="140" y="240" as="sourcePoint"/>
-                        <mxPoint x="130" y="150" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="20" value="" style="endArrow=classic;html=1;exitX=0.946;exitY=0.169;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.047;entryY=0.658;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="18" target="21">
+                <mxCell id="edge_admin_logout" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="350" y="90" as="sourcePoint"/>
-                        <mxPoint x="430" y="50" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="21" value="modifier un cour" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="430" y="-10" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="22" value="" style="endArrow=classic;html=1;exitX=0.98;exitY=0.656;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.06;entryY=0.381;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="18" target="23">
+                <mxCell id="edge_admin_register" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="auth_register">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="350" y="170" as="sourcePoint"/>
-                        <mxPoint x="430" y="130" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="23" value="supprimer un cour" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="430" y="70" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="24" value="" style="endArrow=classic;html=1;exitX=0.767;exitY=0.938;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.375;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="18" target="25">
+                <mxCell id="edge_login_auth" value="" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="auth_login" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="380" y="150" as="sourcePoint"/>
-                        <mxPoint x="430" y="210" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="25" value="filter coures par category" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="430" y="150" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="26" value="" style="endArrow=classic;html=1;exitX=0.775;exitY=0.092;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.029;entryY=0.677;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="18" target="27">
+                <mxCell id="edge_register_auth" value="" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="auth_register" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="358" y="-38" as="sourcePoint"/>
-                        <mxPoint x="430" y="-30" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="27" value="ajouter un cour" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="430" y="-90" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="28" value="gerer les equipments" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="250" y="390" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="29" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" target="28" source="17">
+                <mxCell id="edge_admin_add_course" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_add_course">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="140" y="600" as="sourcePoint"/>
-                        <mxPoint x="140" y="470" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="30" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="28" target="31">
+                <mxCell id="edge_include_add_course_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_add_course" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="359.9999999999999" y="463.52" as="sourcePoint"/>
-                        <mxPoint x="436.48" y="430" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="31" value="modifier un&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;equipments&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="436.48" y="370" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="32" value="" style="endArrow=classic;html=1;exitX=0.953;exitY=0.669;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.058;entryY=0.201;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="28" target="33">
+                <mxCell id="edge_admin_edit_course" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_edit_course">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="364.08000000000004" y="502.48" as="sourcePoint"/>
-                        <mxPoint x="436.48" y="510" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="33" value="supprimer un&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;equipments&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="436.48" y="450" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="36" value="" style="endArrow=classic;html=1;exitX=0.775;exitY=0.092;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.032;entryY=0.688;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="28" target="37">
+                <mxCell id="edge_include_edit_course_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_edit_course" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="368" y="282" as="sourcePoint"/>
-                        <mxPoint x="440" y="290" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="37" value="ajouter un&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;equipments&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="436.48" y="290" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="38" value="&lt;span style=&quot;color: rgba(0, 0, 0, 0.88); font-family: &amp;quot;Nunito Sans&amp;quot;, &amp;quot;sans-serif&amp;quot;; font-size: 14px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;voir et ajoute les cours&lt;/span&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.88); font-family: &amp;quot;Nunito Sans&amp;quot;, &amp;quot;sans-serif&amp;quot;; font-size: 14px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;_equipements&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="250" y="220" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="39" value="" style="endArrow=classic;html=1;entryX=0.012;entryY=0.32;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="38">
+                <mxCell id="edge_admin_delete_course" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.55;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_delete_course">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="130" y="280" as="sourcePoint"/>
-                        <mxPoint x="250" y="133" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="40" value="Authentication" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="800" y="170" width="180" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="41" value="" style="endArrow=classic;html=1;exitX=0.767;exitY=0.938;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" target="40">
+                <mxCell id="edge_include_delete_course_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_delete_course" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="550" y="-45" as="sourcePoint"/>
-                        <mxPoint x="740" y="120" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="42" value="" style="endArrow=classic;html=1;exitX=0.767;exitY=0.938;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.089;entryY=0.221;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="40">
+                <mxCell id="edge_admin_view_courses" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_courses">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="550" y="27" as="sourcePoint"/>
-                        <mxPoint x="824" y="270" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="43" value="" style="endArrow=classic;html=1;exitX=0.767;exitY=0.938;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.015;entryY=0.398;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="40">
+                <mxCell id="edge_include_view_courses_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_courses" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="550" y="100" as="sourcePoint"/>
-                        <mxPoint x="790" y="220" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="44" value="" style="endArrow=classic;html=1;exitX=0.767;exitY=0.938;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.015;entryY=0.594;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="40">
+                <mxCell id="edge_admin_view_courses_category" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.85;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_courses_category">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="547" y="176" as="sourcePoint"/>
-                        <mxPoint x="800" y="290" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="45" value="" style="endArrow=classic;html=1;exitX=0.775;exitY=0.092;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.044;entryY=0.706;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="40">
+                <mxCell id="edge_include_view_courses_category_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_courses_category" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="556.48" y="322" as="sourcePoint"/>
-                        <mxPoint x="653.48" y="270" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="46" value="" style="endArrow=classic;html=1;exitX=0.775;exitY=0.092;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.078;entryY=0.808;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="40">
+                <mxCell id="edge_admin_view_total_courses" value="" style="endArrow=classic;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_total_courses">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="548.48" y="390" as="sourcePoint"/>
-                        <mxPoint x="820" y="310" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="47" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.044;entryY=0.64;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="38" target="40">
+                <mxCell id="edge_include_view_total_courses_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_total_courses" target="auth_general">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="364.24" y="280" as="sourcePoint"/>
-                        <mxPoint x="615.76" y="206" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="48" value="" style="endArrow=classic;html=1;exitX=0.958;exitY=0.304;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.283;entryY=0.985;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="33" target="40">
+                <mxCell id="edge_admin_view_upcoming" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_upcoming_courses">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="550" y="480" as="sourcePoint"/>
-                        <mxPoint x="838.52" y="360" as="targetPoint"/>
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_view_upcoming_courses_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_upcoming_courses" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_view_upcoming_month" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_upcoming_month">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_view_upcoming_month_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_upcoming_month" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_add_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_add_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_add_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_add_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_edit_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.45;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_edit_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_edit_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_edit_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_delete_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.6;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_delete_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_delete_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_delete_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_view_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_view_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_view_equipment_type" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.9;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_equipment_type">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_view_equipment_type_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_equipment_type" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_view_total_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_total_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_view_total_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_total_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_assign_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_assign_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_assign_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_assign_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_view_course_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_course_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_view_course_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_course_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_dashboard" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc_view_dashboard">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_view_dashboard_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_view_dashboard" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_login" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="auth_login">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_logout" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_view_courses" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="uc_trainer_view_courses">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_trainer_view_courses_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_trainer_view_courses" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_view_courses_category" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="uc_trainer_view_courses_category">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_trainer_view_courses_category_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_trainer_view_courses_category" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_view_equipment" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="uc_trainer_view_equipment">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_trainer_view_equipment_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_trainer_view_equipment" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_view_equipment_type" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.65;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="uc_trainer_view_equipment_type">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_trainer_view_equipment_type_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_trainer_view_equipment_type" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_view_totals" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="uc_trainer_view_totals">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_trainer_view_totals_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_trainer_view_totals" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_trainer_view_upcoming" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.95;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="uc_trainer_view_upcoming">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_include_trainer_view_upcoming_auth" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;strokeColor=#000000;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc_trainer_view_upcoming" target="auth_general">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="400" as="sourcePoint"/>
+                        <mxPoint x="250" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
